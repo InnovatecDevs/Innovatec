@@ -1,0 +1,65 @@
+image: node:20
+
+stages:
+  - setup
+  - test
+  - build
+  - deploy
+
+variables:
+  NPM_TOKEN: ${NPM_TOKEN}
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+# Instalación de dependencias
+install_dependencies:
+  stage: setup
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+
+# Ejecutar pruebas
+run_tests:
+  stage: test
+  script:
+    - npm run test
+  dependencies:
+    - install_dependencies
+
+# Construir la aplicación
+build:
+  stage: build
+  script:
+    - npm run build
+    - npm run build:ssr
+  artifacts:
+    paths:
+      - dist/
+  dependencies:
+    - install_dependencies
+
+# Despliegue
+deploy:
+  stage: deploy
+  script:
+    # Configurar SSH
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+    
+    # Desplegar archivos
+    - scp -r dist/browser/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH/browser
+    - scp -r dist/server/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH/server
+    
+    # Reiniciar el servidor Node.js
+    - ssh $SERVER_USER@$SERVER_HOST "cd $DEPLOY_PATH && pm2 restart alimatic || pm2 start server/main.js --name alimatic"
+  only:
+    - main
+  dependencies:
+    - build 
