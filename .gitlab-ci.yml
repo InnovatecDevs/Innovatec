@@ -27,10 +27,24 @@ before_script:
 install_dependencies:
   stage: setup
   script:
-    - npm ci
+    - echo "Instalando dependencias..."
+    - npm config set registry https://registry.npmjs.org/
+    - npm ci --verbose
+    - echo "Dependencias instaladas correctamente"
   artifacts:
     paths:
       - node_modules/
+    expire_in: 1 day
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+    policy: pull-push
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
 
 # Ejecutar pruebas
 run_tests:
