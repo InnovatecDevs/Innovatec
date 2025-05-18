@@ -1,18 +1,27 @@
-image: node:20
+image: docker:git
+
+services:
+  - docker:dind
 
 stages:
   - setup
   - test
   - build
+  - release
   - deploy
 
 variables:
-  NPM_TOKEN: ${NPM_TOKEN}
+  DOCKER_REGISTRY: ${CI_REGISTRY}
+  DOCKER_IMAGE: ${CI_REGISTRY_IMAGE}
+  DOCKER_TAG: ${CI_COMMIT_REF_SLUG}
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
 # Instalación de dependencias
 install_dependencies:
@@ -31,35 +40,46 @@ run_tests:
   dependencies:
     - install_dependencies
 
-# Construir la aplicación
+# Construir la aplicación y la imagen Docker
 build:
   stage: build
   script:
     - npm run build
     - npm run build:ssr
+    - docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
+    - docker push $DOCKER_IMAGE:$DOCKER_TAG
   artifacts:
     paths:
       - dist/
   dependencies:
     - install_dependencies
 
+# Crear imagen de release
+release:
+  stage: release
+  script:
+    - docker pull $DOCKER_IMAGE:$DOCKER_TAG
+    - docker tag $DOCKER_IMAGE:$DOCKER_TAG $DOCKER_IMAGE:latest
+    - docker push $DOCKER_IMAGE:latest
+  only:
+    - master
+
 # Despliegue
 deploy:
   stage: deploy
-  script:
+  before_script:
     # Configurar SSH
+    - apk add --no-cache openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
-    
-    # Desplegar archivos
-    - scp -r dist/browser/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH/browser
-    - scp -r dist/server/* $SERVER_USER@$SERVER_HOST:$DEPLOY_PATH/server
-    
-    # Reiniciar el servidor Node.js
-    - ssh $SERVER_USER@$SERVER_HOST "cd $DEPLOY_PATH && pm2 restart alimatic || pm2 start server/main.js --name alimatic"
+    - chmod 700 ~/.ssh
+    - echo "[$SSH_HOST]:$SSH_PORT $SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    # Copiar docker-compose.yml al servidor
+    - scp -P $SSH_PORT docker-compose.yml $SSH_USER@$SSH_HOST:/home/docker/www-alimaticvc/data/alimatic-web/
+    # Ejecutar docker-compose en el servidor
+    - ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd /home/docker/www-alimaticvc/data/alimatic-web && docker-compose pull && docker-compose up -d"
   only:
-    - main
-  dependencies:
-    - build 
+    - master 
