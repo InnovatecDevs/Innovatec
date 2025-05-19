@@ -11,7 +11,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/images/background/bg1.jpg');
+    background-image: url('/assets/images/background/bg1.webp'), url('/assets/images/background/bg1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -164,7 +164,7 @@
 }
 
 .servicio-pesca {
-  background-image: url('/assets/images/services/pesca.jpg');
+  background-image: url('/assets/images/services/pesca.webp'), url('/assets/images/services/pesca.jpg');
 }
 
 .servicio-automatizacion {
@@ -210,11 +210,11 @@
 }
 
 .servicio-filler-2 {
-  background-image: url('/assets/images/services/ventas.jpg');
+  background-image: url('/assets/images/services/ventas.webp'), url('/assets/images/services/ventas.jpg');
 }
 
 .servicio-filler-3 {
-  background-image: url('/assets/images/services/soporte.jpg');
+  background-image: url('/assets/images/services/soporte.webp'), url('/assets/images/services/soporte.jpg');
 }
 
 .visit-btn {
@@ -289,5 +289,53 @@
 
   .service-content h3.orange {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-content {
+    padding: 2rem 0.5rem;
+    gap: 2rem;
+  }
+  .service-row {
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+  .service-card {
+    order: 2;
+    width: 100% !important;
+    max-width: 100vw;
+    height: 180px;
+    margin: 0 auto 1rem auto;
+    border-radius: 16px;
+  }
+  .service-content {
+    order: 3;
+    max-width: 100%;
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    text-align: center;
+    h3.orange {
+      order: 1;
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .service-desc {
+      order: 2;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      text-align: justify;
+    }
+    .visit-btn {
+      order: 3;
+      width: 100%;
+      max-width: 320px;
+      margin: 0.7rem auto 0 auto;
+      display: block;
+      font-size: 1rem;
+      padding: 0.7rem 0;
+    }
   }
 }

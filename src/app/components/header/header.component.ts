@@ -24,6 +24,7 @@ export class HeaderComponent {
   isScrolled = false;
   blurBg = false;
   headerOpacity = 0;
+  mobileMenuOpen = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -38,5 +39,9 @@ export class HeaderComponent {
       this.blurBg = true;
     }
     this.isScrolled = scrollY > 50;
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 }

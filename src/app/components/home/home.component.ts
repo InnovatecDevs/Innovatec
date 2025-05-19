@@ -57,33 +57,35 @@ export class HomeComponent implements AfterViewInit {
       if (this.servicesLeft && this.servicesRight) {
         const servicesOptions = {
           root: null,
-          rootMargin: '-100px',
+          rootMargin: '0px',
           threshold: 0.1
         };
         const servicesObserver = new window.IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.target === this.servicesLeft.nativeElement) {
               if (entry.isIntersecting) {
-                setTimeout(() => {
-                  this.servicesLeft.nativeElement.classList.add('animate-up');
-                }, 100);
-              } else {
-                this.servicesLeft.nativeElement.classList.remove('animate-up');
+                this.servicesLeft.nativeElement.classList.add('animate-up');
               }
             }
             if (entry.target === this.servicesRight.nativeElement) {
               if (entry.isIntersecting) {
-                setTimeout(() => {
-                  this.servicesRight.nativeElement.classList.add('animate-up');
-                }, 100);
-              } else {
-                this.servicesRight.nativeElement.classList.remove('animate-up');
+                this.servicesRight.nativeElement.classList.add('animate-up');
               }
             }
           });
         }, servicesOptions);
         servicesObserver.observe(this.servicesLeft.nativeElement);
         servicesObserver.observe(this.servicesRight.nativeElement);
+
+        // Fallback: Si después de 1 segundo no se aplicó la animación, forzarla
+        setTimeout(() => {
+          if (!this.servicesLeft.nativeElement.classList.contains('animate-up')) {
+            this.servicesLeft.nativeElement.classList.add('animate-up');
+          }
+          if (!this.servicesRight.nativeElement.classList.contains('animate-up')) {
+            this.servicesRight.nativeElement.classList.add('animate-up');
+          }
+        }, 1000);
       }
     }
   }
