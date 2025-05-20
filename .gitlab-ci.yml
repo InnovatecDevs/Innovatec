@@ -9,9 +9,18 @@ cache:
   paths:
     - node_modules/
 
+before_script:
+  - echo "Verificando entorno..."
+  - node --version
+  - npm --version
+  - pwd
+  - ls -la
+
 # Instalación de dependencias
 install_dependencies:
   stage: setup
+  tags:
+    - ssh
   script:
     - echo "Instalando dependencias..."
     - npm install
@@ -34,6 +43,8 @@ install_dependencies:
 # Ejecutar pruebas
 run_tests:
   stage: test
+  tags:
+    - ssh
   script:
     - npm run test
   dependencies:
@@ -42,6 +53,8 @@ run_tests:
 # Construir la aplicación
 build:
   stage: build
+  tags:
+    - ssh
   script:
     - npm run build
     - npm run build:ssr
@@ -54,6 +67,8 @@ build:
 # Despliegue
 deploy:
   stage: deploy
+  tags:
+    - ssh
   before_script:
     # Configurar SSH
     - apk add --no-cache openssh-client
