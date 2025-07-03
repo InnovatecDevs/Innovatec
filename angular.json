@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "alimatic-web": {
+    "innovatec-web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/alimatic-web",
+            "outputPath": "dist/innovatec-web",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -80,7 +80,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/Innovatec/"
             },
             "development": {
               "optimization": false,
@@ -94,10 +95,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "alimatic-web:build:production"
+              "buildTarget": "innovatec-web:build:production"
             },
             "development": {
-              "buildTarget": "alimatic-web:build:development"
+              "buildTarget": "innovatec-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,7 +106,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "alimatic-web:build"
+            "buildTarget": "innovatec-web:build"
           }
         },
         "test": {

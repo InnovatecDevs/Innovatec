@@ -1,5 +1,5 @@
 {
-  "name": "alimatic-web",
+  "name": "innovatec-web",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:alimatic-web": "node dist/alimatic-web/server/server.mjs",
-    "build:ssr": "ng build && ng run alimatic-web:server"
+    "serve:ssr:innovatec-web": "node dist/innovatec-web/server/server.mjs",
+    "build:ssr": "ng build && ng run innovatec-web:server"
   },
   "private": true,
   "dependencies": {
