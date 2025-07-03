@@ -4,9 +4,6 @@ stages:
   - build
   - deploy
 
-variables:
-  GIT_STRATEGY: clone
-  GIT_CHECKOUT: "true"
 
 default:
   tags:

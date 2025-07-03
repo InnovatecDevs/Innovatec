@@ -26,9 +26,9 @@ import { MatIconModule } from '@angular/material/icon';
     .dialog-container {
       padding: 2rem;
       text-align: center;
-      background: #1a1a2e;
+      background: var(--dark-blue, #000C16);
       border-radius: 16px;
-      border: 2px solid #ff9800;
+      border: 2px solid var(--primary-blue, #13E6F3);
     }
 
     .dialog-content {
@@ -50,7 +50,7 @@ import { MatIconModule } from '@angular/material/icon';
     }
 
     h2 {
-      color: #ff9800;
+      color: var(--primary-blue, #13E6F3);
       font-size: 1.5rem;
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -68,13 +68,13 @@ import { MatIconModule } from '@angular/material/icon';
       padding: 0.5rem 2rem;
       font-size: 1.1rem;
       font-family: 'Poppins', sans-serif;
-      background: #ff9800 !important;
-      color: #1a1a2e !important;
+      background: var(--primary-blue, #13E6F3) !important;
+      color: var(--dark-blue, #000C16) !important;
       border-radius: 8px;
       transition: all 0.3s ease;
 
       &:hover {
-        background: #ffbb55 !important;
+        background: var(--accent-blue, #1C82F1) !important;
         transform: translateY(-2px);
       }
     }

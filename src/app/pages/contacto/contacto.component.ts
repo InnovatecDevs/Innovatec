@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { AlertDialogComponent } from '../shared/alert-dialog/alert-dialog.component';
+import { AlertDialogComponent } from '../../components/shared/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-contacto',

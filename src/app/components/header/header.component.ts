@@ -4,7 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +27,11 @@ export class HeaderComponent {
   headerOpacity = 0;
   mobileMenuOpen = false;
 
+  constructor(
+    public authService: AuthService,
+    private router: Router
+  ) {}
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollY = window.scrollY;
@@ -43,5 +49,10 @@ export class HeaderComponent {
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

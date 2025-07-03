@@ -10,7 +10,7 @@
   width: 100%;
   height: 100vh;
   z-index: -1;
-  background: #000;
+  background: linear-gradient(90deg, #010914 50%, #01060d 100%);
   overflow: hidden;
 }
 
@@ -57,78 +57,75 @@
     opacity: 1;
   }
 }
-
+.section-title h1 .nowrap {
+  white-space: nowrap;
+}
 /* Section Title Styles */
 .section-title {
   position: absolute;
-  top: 28%;
-  left: 8vw;
+  top: 22%;
+  left: 22%;
   transform: none;
   text-align: left;
   color: white;
   z-index: 1;
-  width: auto;
   max-width: 800px;
   padding: 0 1rem;
   font-family: 'Poppins', Arial, sans-serif;
 
   h1 {
-    font-size: 4.5rem;
-    font-weight: 900;
-    margin: 0 0 0.5rem 0;
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-    animation: slideInLeft 0.8s ease-out forwards;
-  }
-
-  .orange {
-    color: #ff9800;
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0 0 0.3rem 0;
-    letter-spacing: 0.5px;
-    animation: slideInLeft 0.8s ease-out 0.2s forwards;
-    opacity: 0;
+    font-size: 70px;
+    line-height: 1.05;
+    font-weight: 700;
+    margin: 0 0 0.2em 0;
+    .blue {
+      display: block;
+      color: var(--primary-blue, #13E6F3);
+      font-weight: 700;
+      font-size: 50px;
+      margin-top: 0.15em;
+      line-height: 1.05;
+    }
   }
 
   .description {
-    font-size: 1.05rem;
-    font-weight: 400;
+    margin-top: 1.2em;
+    font-size: 1.2rem;
     color: #fff;
     opacity: 0.92;
-    margin-bottom: 1.2rem;
     max-width: 600px;
     line-height: 1.5;
-    animation: slideInLeft 0.8s ease-out 0.4s forwards;
-    opacity: 0;
   }
 
   .btn-group {
+    margin-top: 2.8em;
     display: flex;
     gap: 1.2rem;
     align-items: center;
-    animation: slideInLeft 0.8s ease-out 0.6s forwards;
-    opacity: 0;
+    justify-content: flex-start;
   }
+}
 
-  .main-btn {
-    font-size: 1.18rem;
-    font-weight: 700;
-    padding: 1.1rem 2.8rem;
-    border-radius: 8px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .main-btn {
-    background: #ff9800;
-    color: #fff;
-    border: none;
-  }
-  .main-btn.outlined {
-    background: transparent;
-    color: #ff9800;
-    border: 2px solid #ff9800;
-  }
+.section-title .main-btn {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  background-color: var(--accent-blue, #1C82F1);
+  border-radius: 6px;
+  padding: 24px 32px;
+}
+
+.section-title .main-btn.outlined {
+  background: transparent;
+  color: var(--primary-blue, #13E6F3);
+  border: 2px solid var(--primary-blue, #13E6F3);
+}
+
+.section-title .main-btn:not(.outlined) {
+  color: #fff;
+  border: none;
 }
 
 .hero-section {
@@ -143,13 +140,13 @@
 .main-content {
   position: relative;
   z-index: 2;
-  background: #181824;
+  background: #0a101a;
   min-height: 100vh;
 }
 
 .servicios-title {
   font-size: 3.2rem;
-  color: var(--primary-orange, #ff9800);
+  color: var(--primary-blue, #13E6F3);
   font-family: 'Poppins', Arial, sans-serif;
   font-weight: 900;
   text-align: center;
@@ -229,7 +226,7 @@
 }
 
 .service-card {
-  background: rgba(24, 24, 36, 0.95);
+  background: rgba(1, 9, 20, 0.97);
   color: #fff;
   border-radius: 22px;
   min-width: 260px;
@@ -240,7 +237,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 16px 0 #ff98001a;
+  box-shadow: 0 2px 16px 0 #13E6F31a;
   letter-spacing: 1px;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
@@ -271,8 +268,8 @@
 }
 
 .servicio-tienda {
-  background: rgba(24, 24, 36, 0.95);
-  border: 2px solid var(--primary-orange, #ff9800);
+  background: rgba(0, 12, 22, 0.95);
+  border: 2px solid var(--primary-blue, #13E6F3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,8 +282,8 @@
 
 .service-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 32px 0 #ff980044;
-  border: 2px solid var(--primary-orange, #ff9800);
+  box-shadow: 0 8px 32px 0 #13E6F344;
+  border: 2px solid var(--primary-blue, #13E6F3);
 }
 
 .service-content {
@@ -296,8 +293,8 @@
   max-width: 420px;
 }
 
-.service-content h3.orange {
-  color: var(--primary-orange, #ff9800);
+.service-content h3.blue {
+  color: var(--primary-blue, #13E6F3);
   font-size: 2.5rem;
   font-weight: 800;
   margin: 0 0 1rem 0;
@@ -317,7 +314,7 @@
     width: 220px;
     height: 140px;
   }
-  .service-content h3.orange {
+  .service-content h3.blue {
     font-size: 2rem;
   }
   .service-desc {
@@ -340,7 +337,7 @@
     align-items: center;
     text-align: center;
   }
-  .service-content h3.orange {
+  .service-content h3.blue {
     font-size: 1.8rem;
   }
   .service-desc {
@@ -349,7 +346,7 @@
 }
 
 .dark-bg-blur {
-  background: linear-gradient(180deg, rgba(20,20,28,0.92) 0px, #181824 100%);
+  background: linear-gradient(180deg, rgba(1,9,20,0.96) 0px, #0a101a 100%);
   backdrop-filter: blur(8px);
   width: 100%;
   position: relative;
@@ -377,7 +374,7 @@
   .mockup-img {
     background: transparent;
     border-radius: 18px;
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 0 32px 4px #ff980022;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 0 32px 4px #13E6F322;
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
     width: 300px;
@@ -393,7 +390,7 @@
     margin-right: 0;
     width: 370px;
     height: 370px;
-    box-shadow: 0 12px 48px 0 #a05e1a33, 0 0 32px 8px #ff98001a, 0 0 16px 2px #ff980011;
+    box-shadow: 0 12px 48px 0 #13E6F333, 0 0 32px 8px #13E6F31a, 0 0 16px 2px #13E6F311;
   }
 
   .mockup-img.center {
@@ -401,7 +398,7 @@
     height: 340px;
     z-index: 3;
     filter: none;
-    box-shadow: 0 8px 32px 0 #ffb84d33, 0 0 32px 8px #ff98001a, 0 0 16px 2px #ff980011;
+    box-shadow: 0 8px 32px 0 #13E6F333, 0 0 32px 8px #13E6F31a, 0 0 16px 2px #13E6F311;
     transform: translateY(-24px) scale(1.04);
     opacity: 1;
   }
@@ -412,7 +409,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 18px;
-    box-shadow: 0 0 32px 4px #ff980022;
+    box-shadow: 0 0 32px 4px #13E6F322;
   }
 
   @media (max-width: 900px) {
@@ -456,8 +453,8 @@
   }
 
   .trusted-card {
-    background: rgba(24, 24, 36, 0.95);
-    border: 2px solid #ff9800;
+    background: rgba(1, 9, 20, 0.97);
+    border: 2px solid #13E6F3;
     border-radius: 16px;
     min-height: 110px;
     display: flex;
@@ -467,12 +464,12 @@
     font-weight: 600;
     color: #fff;
     transition: box-shadow 0.2s, border-color 0.2s;
-    box-shadow: 0 2px 16px 0 #ff98001a;
+    box-shadow: 0 2px 16px 0 #13E6F31a;
     letter-spacing: 0.5px;
   }
   .trusted-card:hover {
-    border-color: #ffa733;
-    box-shadow: 0 4px 24px 0 #ff980044;
+    border-color: #1C82F1;
+    box-shadow: 0 4px 24px 0 #13E6F344;
   }
 }
 
@@ -532,8 +529,8 @@
   word-break: break-word;
 }
 
-.provide-text .orange {
-  color: var(--primary-orange, #ff9800);
+.provide-text .blue {
+  color: var(--primary-blue, #13E6F3);
 }
 
 .provide-block {
@@ -548,8 +545,8 @@
   text-align: left;
 }
 
-.provide-block .orange {
-  color: var(--primary-orange, #ff9800);
+.provide-block .blue {
+  color: var(--primary-blue, #13E6F3);
 }
 
 .provide-block ul {
@@ -584,7 +581,7 @@
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
   margin-bottom: 0;
-  background: #181824;
+  background: var(--dark-blue);
   border: none;
   transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
 }
@@ -717,7 +714,7 @@
 
 .team-title {
   font-size: 3.2rem;
-  color: var(--primary-orange, #ff9800);
+  color: var(--primary-blue, #13E6F3);
   font-family: 'Poppins', Arial, sans-serif;
   font-weight: 900;
   text-align: center;
@@ -743,15 +740,15 @@
 }
 
 .team-card {
-  background: rgba(24, 24, 36, 0.95);
-  border: 2px solid var(--primary-orange, #ff9800);
+  background: rgba(1, 9, 20, 0.97);
+  border: 2px solid var(--primary-blue, #13E6F3);
   border-radius: 18px;
   min-width: 260px;
   max-width: 320px;
   padding: 2.2rem 1.5rem 1.5rem 1.5rem;
   color: #fff;
   font-family: 'Poppins', Arial, sans-serif;
-  box-shadow: 0 2px 16px 0 #ff98001a;
+  box-shadow: 0 2px 16px 0 #13E6F31a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -765,8 +762,8 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 1.5rem;
-  border: 3px solid var(--primary-orange, #ff9800);
-  box-shadow: 0 4px 16px 0 #ff980033;
+  border: 3px solid var(--primary-blue, #13E6F3);
+  box-shadow: 0 4px 16px 0 #13E6F333;
 }
 
 .team-avatar img {
@@ -776,13 +773,13 @@
 }
 
 .team-card:hover {
-  box-shadow: 0 8px 32px 0 #ff980044;
+  box-shadow: 0 8px 32px 0 #13E6F344;
 }
 
 .team-name {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--primary-orange, #ff9800);
+  color: var(--primary-blue, #13E6F3);
   margin-bottom: 0.3rem;
 }
 
@@ -817,7 +814,7 @@
 }
 
 .ver-mas-btn {
-  background: var(--primary-orange, #ff9800);
+  background: var(--primary-blue, #13E6F3);
   color: #fff;
   border: none;
   padding: 0.5rem 1.5rem;
@@ -828,7 +825,7 @@
   font-weight: 500;
 
   &:hover {
-    background: darken(#ff9800, 10%);
+    background: darken(#13E6F3, 10%);
     transform: translateY(-2px);
   }
 }
@@ -889,10 +886,11 @@
     max-width: 600px;
 
     h1 {
-      font-size: 3.8rem;
+      font-size: 56px;
+      line-height: 67px;
     }
 
-    .orange {
+    .blue {
       font-size: 2.5rem;
     }
   }
@@ -914,10 +912,11 @@
     max-width: 500px;
 
     h1 {
-      font-size: 3.2rem;
+      font-size: 48px;
+      line-height: 58px;
     }
 
-    .orange {
+    .blue {
       font-size: 2.2rem;
     }
 
@@ -958,10 +957,11 @@
     width: 90%;
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 42px;
+      line-height: 50px;
     }
 
-    .orange {
+    .blue {
       font-size: 2rem;
     }
 
@@ -1009,10 +1009,11 @@
 @media screen and (max-width: 576px) {
   .section-title {
     h1 {
-      font-size: 2.4rem;
+      font-size: 32px;
+      line-height: 38px;
     }
 
-    .orange {
+    .blue {
       font-size: 1.8rem;
     }
 
@@ -1057,10 +1058,11 @@
     width: 90%;
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 28px;
+      line-height: 34px;
     }
 
-    .orange {
+    .blue {
       font-size: 1.8rem;
     }
 
@@ -1128,10 +1130,11 @@
 @media screen and (max-width: 375px) { // iPhone SE, iPhone 8
   .section-title {
     h1 {
-      font-size: 2.2rem;
+      font-size: 24px;
+      line-height: 29px;
     }
 
-    .orange {
+    .blue {
       font-size: 1.6rem;
     }
 
