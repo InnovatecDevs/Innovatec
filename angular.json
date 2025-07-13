@@ -81,7 +81,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/Innovatec/"
+              "baseHref": "/"
             },
             "development": {
               "optimization": false,
