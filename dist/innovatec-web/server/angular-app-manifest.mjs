@@ -2,54 +2,54 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: '/Innovatec/',
+  baseHref: '/innovatec-web/',
   locale: undefined,
   routes: [
   {
     "renderMode": 2,
-    "route": "/Innovatec"
+    "route": "/innovatec-web"
   },
   {
     "renderMode": 2,
-    "route": "/Innovatec/servicios"
+    "route": "/innovatec-web/servicios"
   },
   {
     "renderMode": 2,
-    "route": "/Innovatec/contacto"
+    "route": "/innovatec-web/contacto"
   },
   {
     "renderMode": 2,
-    "route": "/Innovatec/register"
+    "route": "/innovatec-web/register"
   },
   {
     "renderMode": 2,
-    "route": "/Innovatec/perfil"
+    "route": "/innovatec-web/perfil"
   },
   {
     "renderMode": 2,
-    "route": "/Innovatec/login"
+    "route": "/innovatec-web/login"
   },
   {
     "renderMode": 2,
-    "route": "/Innovatec/admin"
+    "route": "/innovatec-web/admin"
   },
   {
     "renderMode": 2,
-    "redirectTo": "/Innovatec",
-    "route": "/Innovatec/**"
+    "redirectTo": "/innovatec-web",
+    "route": "/innovatec-web/**"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 53715, hash: '8958105b426f6b8eb6d35f2f5280a8c6ba49d00c825e4e561ac24acd4f3c9021', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 6985, hash: 'dc24cf5dc6c3a79824011800ce9118ea09f847c7a6072837c612e5dbc9530750', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'contacto/index.html': {size: 109410, hash: '356a1020d6528a6f91c4f5985c5ad7a1ad95f05fd6df5108b3e72e85cf1c0b84', text: () => import('./assets-chunks/contacto_index_html.mjs').then(m => m.default)},
-    'servicios/index.html': {size: 107304, hash: '680051605f5a1693ce0bc7da212d8b06c7e1739872e44f369b16ed3fc26db743', text: () => import('./assets-chunks/servicios_index_html.mjs').then(m => m.default)},
-    'register/index.html': {size: 99684, hash: '9beead3d2ae6ef2915da438ffc72ce36c34824de9c274b637c6e9186e1214e3e', text: () => import('./assets-chunks/register_index_html.mjs').then(m => m.default)},
-    'index.html': {size: 133885, hash: '095469fb09e011e1849678f7bb53039d2c782d0b322ac1c06b740f6f04cef344', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'perfil/index.html': {size: 147848, hash: 'e0592fb2a57eb64b9d3b4c28dbffda468d6f6b5c20eaf749b7d50311095b648b', text: () => import('./assets-chunks/perfil_index_html.mjs').then(m => m.default)},
-    'login/index.html': {size: 147848, hash: 'e0592fb2a57eb64b9d3b4c28dbffda468d6f6b5c20eaf749b7d50311095b648b', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
-    'admin/index.html': {size: 147848, hash: 'e0592fb2a57eb64b9d3b4c28dbffda468d6f6b5c20eaf749b7d50311095b648b', text: () => import('./assets-chunks/admin_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 53719, hash: '6396416079c716fba65804b226f018b1c23d48d1b8fcbcea6a1d1c2622a55ac6', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 6989, hash: 'ee85db93294e8c60bee65ccd262a57e06cf8e91c51d78f96ebc374944a0dd10d', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.html': {size: 133917, hash: 'aff8a9f7510382275bb3cd1b3550a3a1a98071190066cda205ba9a1a6d089c54', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'register/index.html': {size: 99712, hash: 'e26c3475ba4ed01c4b6b8dd5c5c27aab1134126c356d04f0a9be581db633ffd0', text: () => import('./assets-chunks/register_index_html.mjs').then(m => m.default)},
+    'servicios/index.html': {size: 107348, hash: '72f6ebfb8f94aa380295da257a57534bd7668600f3a9b620729541ad177da082', text: () => import('./assets-chunks/servicios_index_html.mjs').then(m => m.default)},
+    'contacto/index.html': {size: 109438, hash: '9f62a47723ddce83a67989630fcd469337677286d5e5115e74055457e1f5202c', text: () => import('./assets-chunks/contacto_index_html.mjs').then(m => m.default)},
+    'perfil/index.html': {size: 147852, hash: 'e98f79783031534fef597c9aade5d0f9ce1658367a3eb44d6e7656ede6db89f8', text: () => import('./assets-chunks/perfil_index_html.mjs').then(m => m.default)},
+    'login/index.html': {size: 147852, hash: 'e98f79783031534fef597c9aade5d0f9ce1658367a3eb44d6e7656ede6db89f8', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
+    'admin/index.html': {size: 147852, hash: 'e98f79783031534fef597c9aade5d0f9ce1658367a3eb44d6e7656ede6db89f8', text: () => import('./assets-chunks/admin_index_html.mjs').then(m => m.default)},
     'styles-3BOOWEL6.css': {size: 88446, hash: 'HCAqz/dou0s', text: () => import('./assets-chunks/styles-3BOOWEL6_css.mjs').then(m => m.default)}
   },
 };

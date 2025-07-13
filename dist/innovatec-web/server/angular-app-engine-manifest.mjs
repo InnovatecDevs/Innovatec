@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/Innovatec',
+  basePath: '/innovatec-web',
   supportedLocales: {
   "en-US": ""
 },

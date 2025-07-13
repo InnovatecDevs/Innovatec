@@ -1,11 +1,11 @@
 {
   "routes": {
-    "/Innovatec": {},
-    "/Innovatec/admin": {},
-    "/Innovatec/contacto": {},
-    "/Innovatec/login": {},
-    "/Innovatec/perfil": {},
-    "/Innovatec/register": {},
-    "/Innovatec/servicios": {}
+    "/innovatec-web": {},
+    "/innovatec-web/admin": {},
+    "/innovatec-web/contacto": {},
+    "/innovatec-web/login": {},
+    "/innovatec-web/perfil": {},
+    "/innovatec-web/register": {},
+    "/innovatec-web/servicios": {}
   }
 }

@@ -264,7 +264,7 @@
 }
 
 .servicio-pesca {
-  background-image: url('../../../assets/images/services/pesca.webp');
+  background-image: url('/assets/images/services/refrigeracion.jpg');
 }
 
 .servicio-tienda {
@@ -847,6 +847,73 @@
   background-image: url('/assets/images/services/automatizacion.jpg');
 }
 
+.modern-services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 2rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.modern-service-item {
+  background: rgba(1, 9, 20, 0.97);
+  border: 2px solid var(--primary-blue, #13E6F3);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 #13E6F31a;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 480px;
+  flex: 1 1 340px;
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.2s;
+  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.modern-service-item:hover {
+  box-shadow: 0 8px 32px 0 #13E6F344;
+  border-color: #1C82F1;
+  transform: translateY(-4px) scale(1.03);
+}
+
+.modern-service-icon {
+  font-size: 3.2rem;
+  color: var(--primary-blue, #13E6F3);
+  flex-shrink: 0;
+}
+
+.modern-service-content h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  color: var(--primary-blue, #13E6F3);
+}
+
+.modern-service-content p {
+  font-size: 1.05rem;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .modern-services-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .modern-service-item {
+    min-width: 0;
+    max-width: 98vw;
+    width: 98vw;
+    padding: 1.2rem 1rem;
+  }
+  .modern-service-icon {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 1200px) {
   .services-grid {
     flex-direction: column;
@@ -1153,5 +1220,101 @@
 
   .servicios-title {
     font-size: 2rem;
+  }
+}
+
+.services-grid-minimal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.service-card-minimal {
+  background: rgba(1, 9, 20, 0.97);
+  border: 2px solid var(--primary-blue, #13E6F3);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 #13E6F31a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.2s;
+  text-align: center;
+}
+
+.service-card-minimal:hover {
+  box-shadow: 0 8px 32px 0 #13E6F344;
+  border-color: #1C82F1;
+  transform: translateY(-4px) scale(1.03);
+}
+
+.service-icon-minimal {
+  font-size: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  background: rgba(10,16,26,0.85);
+  border-radius: 50%;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px 0 #13E6F322;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card-minimal h3.blue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 0.7rem 0;
+  color: var(--primary-blue, #13E6F3);
+}
+
+.service-card-minimal h3.blue a {
+  color: var(--primary-blue, #13E6F3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.service-card-minimal h3.blue a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.service-desc-minimal {
+  font-size: 1.05rem;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .services-grid-minimal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .services-grid-minimal {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .service-card-minimal {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    border-radius: 12px;
+  }
+  .service-icon-minimal {
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+  }
+  .service-card-minimal h3.blue {
+    font-size: 1.05rem;
+  }
+  .service-desc-minimal {
+    font-size: 0.95rem;
   }
 }
